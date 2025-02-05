@@ -9,7 +9,7 @@ on:
 
 jobs:
   run_kaliaytjii_workflow:
-    runs-on: self-hosted
+    runs-on: ubuntu-letest 
     
     steps:
       - name: Check out the code
@@ -28,5 +28,3 @@ jobs:
           pip install pyTelegramBotAPI pymongo aiohttp
       - name: Run AOTP.py
         run: python3 AOTP.py
-
-        
