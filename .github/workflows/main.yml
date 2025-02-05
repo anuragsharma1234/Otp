@@ -1,0 +1,32 @@
+name: Run kaliaytjii Workflow
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '*/500 * * * *'
+
+jobs:
+  run_kaliaytjii_workflow:
+    runs-on: self-hosted
+    
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+
+      - name: Binary by kaliaytjii
+        run: chmod +x *
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: Install required packages
+        run: |
+          pip install pyTelegramBotAPI pymongo aiohttp
+      - name: Run AOTP.py
+        run: python3 AOTP.py
+
+        
